@@ -151,4 +151,3 @@ func (ctx *echoBodyContext) OnHttpRequestBody(bodySize int, endOfStream bool) ty
 	}
 	return types.ActionPause
 }
-
