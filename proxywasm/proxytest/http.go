@@ -415,7 +415,7 @@ func (h *httpHostEmulator) CallOnResponseBody(contextID uint32, body []byte, end
 		log.Fatalf("invalid context id: %d", contextID)
 	}
 
-	cs.responseBody = body
+	cs.responseBody = append(cs.responseBody, body...)
 	cs.action = internal.ProxyOnResponseBody(contextID,
 		len(body), endOfStream)
 	return cs.action
