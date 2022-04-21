@@ -25,14 +25,12 @@ func TestDuplicateBodyContext_OnHttpResponseBody(t *testing.T) {
 		id := host.InitializeHttpContext()
 
 		// Call OnRequestHeaders.
-		action := host.CallOnRequestHeaders(id, [][2]string{
-			{"content-length", "10"},
-			{"buffer-operation", "replace"},
+		_ = host.CallOnRequestHeaders(id, [][2]string{
 			{"x-duplicate", "true"},
 		}, true)
 
+		host.CallOnResponseHeaders(id, [][2]string{}, true)
 		host.CallOnResponseBody(id, []byte(`body-data`), true)
-
 		response := host.GetSentLocalResponse(id)
 		require.Equal(t, `body-databody-data`, response)
 	})

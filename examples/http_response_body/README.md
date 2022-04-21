@@ -1,15 +1,12 @@
-## http_body
+## http_response_body
 
-this example demonstrates how to perform operation on a request body like append/prepend/replace.
+this example demonstrates how to perform operation on a response body.
 
 
 ```
-$ curl -XPUT localhost:18000 --data '[initial body]' -H "buffer-operation: prepend"
-[this is prepended body][initial body]
+$ curl -XPUT localhost:18000 -H "x-duplicate: true"
+response-bodyresponse-body
 
-$ curl -XPUT localhost:18000 --data '[initial body]' -H "buffer-operation: append"
-[initial body][this is appended body]
-
-$ curl -XPUT localhost:18000 --data '[initial body]' -H "buffer-operation: replace"
-[this is replaced body]
+$ curl -XPUT localhost:18000
+response-body
 ```
