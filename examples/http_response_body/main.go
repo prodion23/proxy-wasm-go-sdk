@@ -71,7 +71,7 @@ func (ctx *duplicateBodyContext) OnHttpResponseBody(bodySize int, endOfStream bo
 	}
 
 	if ctx.duplicateBody {
-		body, _ := proxywasm.GetHttpRequestBody(0, bodySize)
+		body, _ := proxywasm.GetHttpResponseBody(0, bodySize)
 		err := proxywasm.AppendHttpResponseBody(body)
 		if err != nil {
 			return 0
