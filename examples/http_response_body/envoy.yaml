@@ -79,7 +79,7 @@ static_resources:
                             runtime: "envoy.wasm.runtime.v8"
                             code:
                               local:
-                                filename: "./examples/http_body/main.wasm"
+                                filename: "./examples/http_response_body/main.wasm"
                   - name: envoy.filters.http.router
                     typed_config:
                       "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
